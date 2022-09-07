@@ -25,16 +25,35 @@ version:            0.1.0.0
 -- category:
 extra-source-files: CHANGELOG.md
 
+library
+    build-depends:    base ^>=4.14.3.0
+                    , containers
+                    , mtl
+    hs-source-dirs:   src
+    exposed-modules:    Hw01
+                        Hw02.Log
+                        Hw02.LogAnalysis
+                        Hw03.Golf
+                        Hw04
+                        Hw07.Buffer
+                        Hw07.Editor
+                        Hw07.JoinList
+                        Hw07.Sized
+                        Hw07.StringBufEditor
+                        Hw07.StringBuffer
+    default-language: Haskell2010
+
 executable Haskell-Course
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    other-modules: 
-        Hw01
+    -- other-modules: 
+
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
     build-depends:    base ^>=4.14.3.0
                     , containers
-    hs-source-dirs:   app, src
+                    , Haskell-Course
+    hs-source-dirs:   app
     default-language: Haskell2010

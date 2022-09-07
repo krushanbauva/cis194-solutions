@@ -1,6 +1,6 @@
-module LogAnalysis where
+module Hw02.LogAnalysis where
 
-import Log
+import Hw02.Log
 
 
 parseMessageWords :: [String] -> LogMessage
