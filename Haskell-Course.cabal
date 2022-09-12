@@ -41,6 +41,7 @@ library
                         Hw07.Sized
                         Hw07.StringBufEditor
                         Hw07.StringBuffer
+                        Hw10
     default-language: Haskell2010
 
 executable Haskell-Course
