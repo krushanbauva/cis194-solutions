@@ -96,7 +96,8 @@ abParser = (,) <$> char 'a' <*> char 'b'
 -- Nothing
 
 abParser_ :: Parser ()
-abParser_ = (\x y -> ()) <$> char 'a' <*> char 'b'
+-- abParser_ = (\x y -> ()) <$> char 'a' <*> char 'b'
+abParser_ = (const ()) <$> abParser
 
 -- >>> runParser abParser_ "abcde"
 -- Just ((),"cde")
@@ -119,10 +120,10 @@ instance Alternative Parser where
   (<|>) p1 p2 = Parser f where
     f inp = case runParser p1 inp of
       Nothing -> runParser p2 inp
-      Just(_, _) -> runParser p1 inp
+      Just x -> Just x
 
 intOrUppercase :: Parser ()
-intOrUppercase = (\_ -> ()) <$> posInt <|> (\_ -> ()) <$> satisfy isUpper
+intOrUppercase = (const ()) <$> posInt <|> (const ()) <$> satisfy isUpper
 
 -- >>> runParser intOrUppercase "342abcd"
 -- Just ((),"abcd")
